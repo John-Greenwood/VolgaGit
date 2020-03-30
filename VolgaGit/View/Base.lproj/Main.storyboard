@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="n7Y-oy-Ccy" kind="presentation" identifier="ShowMainScreen" animates="NO" modalPresentationStyle="fullScreen" id="dsO-NX-6Ep"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="139"/>
+        </scene>
+        <!--Репозитории-->
+        <scene sceneID="AKy-hx-BJh">
+            <objects>
+                <viewController storyboardIdentifier="MainScreen" id="N5E-GF-soE" customClass="MainViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2N8-dg-eIg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ew3-aO-LaO">
+                                <rect key="frame" x="0.0" y="140" width="414" height="707"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="N5E-GF-soE" id="KoZ-UC-xSS"/>
+                                    <outlet property="delegate" destination="N5E-GF-soE" id="Bau-fW-7zI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3hl-YD-sVd" firstAttribute="top" secondItem="ew3-aO-LaO" secondAttribute="top" id="4iu-lZ-8qk"/>
+                            <constraint firstItem="3hl-YD-sVd" firstAttribute="trailing" secondItem="ew3-aO-LaO" secondAttribute="trailing" id="LGU-fo-qOJ"/>
+                            <constraint firstItem="ew3-aO-LaO" firstAttribute="bottom" secondItem="3hl-YD-sVd" secondAttribute="bottom" constant="34" id="NuO-nW-vBg"/>
+                            <constraint firstItem="ew3-aO-LaO" firstAttribute="leading" secondItem="3hl-YD-sVd" secondAttribute="leading" id="yd0-9m-edd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3hl-YD-sVd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Vwg-QU-bVv"/>
+                    <navigationItem key="navigationItem" title="Репозитории" id="Q9I-rK-cyz"/>
+                    <connections>
+                        <outlet property="tableView" destination="ew3-aO-LaO" id="IXp-ya-Jwt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBn-B1-u5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2973.913043478261" y="-542.41071428571422"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Vv9-R5-cvt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bE2-Lz-niF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ASI-10-2MW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Irx-Eo-pjn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="N5E-GF-soE" kind="relationship" relationship="rootViewController" id="eDX-64-gcW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gtb-0a-TTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207" y="-542"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZJR-jd-Crf">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="n7Y-oy-Ccy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9DA-Uc-2aS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bE2-Lz-niF" kind="relationship" relationship="viewControllers" id="rgj-as-ltZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5K-Rb-KFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340.5797101449277" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>

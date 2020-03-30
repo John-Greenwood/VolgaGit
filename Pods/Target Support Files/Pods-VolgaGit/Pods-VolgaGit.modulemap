@@ -1,0 +1,6 @@
+module Pods_VolgaGit {
+  umbrella header "Pods-VolgaGit-umbrella.h"
+
+  export *
+  module * { export * }
+}

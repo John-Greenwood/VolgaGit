@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120B493D8F251739370E0528 /* libPods-VolgaGit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 827F21C31516E2992812604B /* libPods-VolgaGit.a */; };
+		52A121102431C75F001E6152 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */; };
+		52A121112431C75F001E6152 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */; };
 		52B615342427AF3100182FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B615332427AF3100182FB2 /* AppDelegate.swift */; };
 		52B615362427AF3100182FB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B615352427AF3100182FB2 /* SceneDelegate.swift */; };
 		52B615382427AF3100182FB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B615372427AF3100182FB2 /* ViewController.swift */; };
@@ -14,9 +17,15 @@
 		52B6153E2427AF3100182FB2 /* VolgaGit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52B6153C2427AF3100182FB2 /* VolgaGit.xcdatamodeld */; };
 		52B615402427AF3500182FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B6153F2427AF3500182FB2 /* Assets.xcassets */; };
 		52B615432427AF3500182FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B615412427AF3500182FB2 /* LaunchScreen.storyboard */; };
+		52B6154E2427C48000182FB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6154D2427C48000182FB2 /* MainViewController.swift */; };
+		52B615542427C5EF00182FB2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B615532427C5EF00182FB2 /* MainViewModel.swift */; };
+		52B615572427C62A00182FB2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B615562427C62A00182FB2 /* Repository.swift */; };
+		52E66B33242BA8A6005A079A /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E66B32242BA8A6005A079A /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		52B615302427AF3100182FB2 /* VolgaGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolgaGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B615332427AF3100182FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B615352427AF3100182FB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +35,13 @@
 		52B6153F2427AF3500182FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B615422427AF3500182FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52B615442427AF3500182FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B6154D2427C48000182FB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		52B615532427C5EF00182FB2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		52B615562427C62A00182FB2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		52E66B32242BA8A6005A079A /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		827F21C31516E2992812604B /* libPods-VolgaGit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VolgaGit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99E4A4D8CBA5DB73AA184208 /* Pods-VolgaGit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolgaGit.release.xcconfig"; path = "Target Support Files/Pods-VolgaGit/Pods-VolgaGit.release.xcconfig"; sourceTree = "<group>"; };
+		BACB84D08C571DFE5E4477C1 /* Pods-VolgaGit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolgaGit.debug.xcconfig"; path = "Target Support Files/Pods-VolgaGit/Pods-VolgaGit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120B493D8F251739370E0528 /* libPods-VolgaGit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52A1210D2431C73F001E6152 /* RepositoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */,
+				52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */,
+			);
+			path = RepositoryCell;
+			sourceTree = "<group>";
+		};
 		52B615272427AF3100182FB2 = {
 			isa = PBXGroup;
 			children = (
 				52B615322427AF3100182FB2 /* VolgaGit */,
 				52B615312427AF3100182FB2 /* Products */,
+				AD0A791F9999B721344DF1C7 /* Pods */,
+				C0C6DED96D6F729EE235F31D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +86,86 @@
 		52B615322427AF3100182FB2 /* VolgaGit */ = {
 			isa = PBXGroup;
 			children = (
-				52B615332427AF3100182FB2 /* AppDelegate.swift */,
-				52B615352427AF3100182FB2 /* SceneDelegate.swift */,
-				52B615372427AF3100182FB2 /* ViewController.swift */,
-				52B615392427AF3100182FB2 /* Main.storyboard */,
+				52E66B31242BA89B005A079A /* Manager */,
+				52B615552427C60F00182FB2 /* Model */,
+				52B6154A2427BCAD00182FB2 /* SupportFiles */,
+				52B6154B2427BFBD00182FB2 /* View */,
+				52B615522427C5DD00182FB2 /* ViewModel */,
+				52B6154C2427C46200182FB2 /* ViewController */,
 				52B6153F2427AF3500182FB2 /* Assets.xcassets */,
-				52B615412427AF3500182FB2 /* LaunchScreen.storyboard */,
-				52B615442427AF3500182FB2 /* Info.plist */,
 				52B6153C2427AF3100182FB2 /* VolgaGit.xcdatamodeld */,
 			);
 			path = VolgaGit;
+			sourceTree = "<group>";
+		};
+		52B6154A2427BCAD00182FB2 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				52B615332427AF3100182FB2 /* AppDelegate.swift */,
+				52B615352427AF3100182FB2 /* SceneDelegate.swift */,
+				52B615442427AF3500182FB2 /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		52B6154B2427BFBD00182FB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52A1210D2431C73F001E6152 /* RepositoryCell */,
+				52B615412427AF3500182FB2 /* LaunchScreen.storyboard */,
+				52B615392427AF3100182FB2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52B6154C2427C46200182FB2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				52B615372427AF3100182FB2 /* ViewController.swift */,
+				52B6154D2427C48000182FB2 /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		52B615522427C5DD00182FB2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52B615532427C5EF00182FB2 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52B615552427C60F00182FB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52B615562427C62A00182FB2 /* Repository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52E66B31242BA89B005A079A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				52E66B32242BA8A6005A079A /* Box.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		AD0A791F9999B721344DF1C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BACB84D08C571DFE5E4477C1 /* Pods-VolgaGit.debug.xcconfig */,
+				99E4A4D8CBA5DB73AA184208 /* Pods-VolgaGit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C0C6DED96D6F729EE235F31D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				827F21C31516E2992812604B /* libPods-VolgaGit.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +175,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B615472427AF3500182FB2 /* Build configuration list for PBXNativeTarget "VolgaGit" */;
 			buildPhases = (
+				9E17088701BA4CE6E97670D3 /* [CP] Check Pods Manifest.lock */,
 				52B6152C2427AF3100182FB2 /* Sources */,
 				52B6152D2427AF3100182FB2 /* Frameworks */,
 				52B6152E2427AF3100182FB2 /* Resources */,
@@ -131,20 +230,51 @@
 				52B615432427AF3500182FB2 /* LaunchScreen.storyboard in Resources */,
 				52B615402427AF3500182FB2 /* Assets.xcassets in Resources */,
 				52B6153B2427AF3100182FB2 /* Main.storyboard in Resources */,
+				52A121112431C75F001E6152 /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E17088701BA4CE6E97670D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VolgaGit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52B6152C2427AF3100182FB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E66B33242BA8A6005A079A /* Box.swift in Sources */,
+				52B615542427C5EF00182FB2 /* MainViewModel.swift in Sources */,
 				52B615382427AF3100182FB2 /* ViewController.swift in Sources */,
+				52A121102431C75F001E6152 /* RepositoryTableViewCell.swift in Sources */,
 				52B615342427AF3100182FB2 /* AppDelegate.swift in Sources */,
+				52B615572427C62A00182FB2 /* Repository.swift in Sources */,
 				52B6153E2427AF3100182FB2 /* VolgaGit.xcdatamodeld in Sources */,
 				52B615362427AF3100182FB2 /* SceneDelegate.swift in Sources */,
+				52B6154E2427C48000182FB2 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,11 +416,12 @@
 		};
 		52B615482427AF3500182FB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BACB84D08C571DFE5E4477C1 /* Pods-VolgaGit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZ25Z9MBQ7;
-				INFOPLIST_FILE = VolgaGit/Info.plist;
+				INFOPLIST_FILE = VolgaGit/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +435,12 @@
 		};
 		52B615492427AF3500182FB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99E4A4D8CBA5DB73AA184208 /* Pods-VolgaGit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZ25Z9MBQ7;
-				INFOPLIST_FILE = VolgaGit/Info.plist;
+				INFOPLIST_FILE = VolgaGit/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
