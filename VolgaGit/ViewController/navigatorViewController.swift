@@ -9,10 +9,10 @@
 import UIKit
 
 class navigatorViewController: UIViewController {
-
+    
     override func viewDidAppear(_ animated: Bool) {
-        performSegue(withIdentifier: "ShowMainScreen", sender: nil)
+        if DefaultsManager.shared.login != nil, DefaultsManager.shared.password != nil { performSegue(withIdentifier: "ShowMainScreen", sender: self) }
+        else { performSegue(withIdentifier: "ShowLoginScreen", sender: self) }
+        
     }
-
-
 }

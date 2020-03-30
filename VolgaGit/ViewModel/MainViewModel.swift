@@ -6,14 +6,18 @@
 //  Copyright © 2020 Лебедев Лев. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MainViewModel {
     
     var repositories: Box<[Repository]?> = Box(nil)
     var repositoriesCount: Int { get { return repositories.value?.count ?? 0 }}
+    let target: UIViewController
+    var alertManager: AlertManager!
     
-    init() {
+    init(_ target: UIViewController) {
+        self.target = target
+        self.alertManager = AlertManager(target)
         loadRepositories()
     }
     
@@ -22,11 +26,9 @@ class MainViewModel {
     }
     
     func loadRepositories() {
-        repositories.value = [
-            Repository(title: "Repo one", description: "Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test Test test test test Test test test test ", userAvatar: .remove, authorName: "John Doe", forksCount: 123, starsCount: 321, language: "Swift"),
-             Repository(title: "Repo one", description: "Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test Test test test test Test test test test ", userAvatar: .remove, authorName: "John Doe", forksCount: 123, starsCount: 321, language: "Swift"),
-              Repository(title: "Repo one", description: "Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test Test test test test Test test test test ", userAvatar: .remove, authorName: "John Doe", forksCount: 123, starsCount: 321, language: "Swift"),
-               Repository(title: "Repo one", description: "Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test Test test test test Test test test test ", userAvatar: .remove, authorName: "John Doe", forksCount: 123, starsCount: 321, language: "Swift")
-        ]
+        APIManager.shared.fetchRepositories { (result, error, repositories) in
+            if result { self.repositories.value = repositories! }
+            else { self.alertManager.error(error!) }
+        }
     }
 }

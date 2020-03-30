@@ -17,13 +17,20 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        model = MainViewModel()
+        model = MainViewModel(self)
         model.repositories.bind { (value) in
             self.tableView.reloadData()
         }
         
         let nibName = UINib(nibName: "RepositoryTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "RepositoryCell")
+    }
+    
+    @IBAction func logOut(_ sender: Any) {
+        DefaultsManager.shared.login = nil
+        DefaultsManager.shared.password = nil
+        
+        performSegue(withIdentifier: "GoToLogin", sender: self)
     }
 }
 

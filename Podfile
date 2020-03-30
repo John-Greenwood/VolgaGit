@@ -2,11 +2,6 @@
 # platform :ios, '9.0'
 
 target 'VolgaGit' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for VolgaGit
-
 	pod 'Alamofire', '~> 5.0'
-
+	pod 'IQKeyboardManagerSwift'
 end

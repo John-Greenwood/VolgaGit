@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="navigatorViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,11 +19,93 @@
                     </view>
                     <connections>
                         <segue destination="n7Y-oy-Ccy" kind="presentation" identifier="ShowMainScreen" animates="NO" modalPresentationStyle="fullScreen" id="dsO-NX-6Ep"/>
+                        <segue destination="TF9-Bu-N2p" kind="presentation" identifier="ShowLoginScreen" modalPresentationStyle="fullScreen" id="9se-Ek-OxF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="-567" y="187"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="HlL-b1-HUO">
+            <objects>
+                <viewController id="TF9-Bu-N2p" customClass="LoginViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wMF-cX-2ME">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="eDz-Rm-eD8">
+                                <rect key="frame" x="20" y="267.66666666666669" width="374" height="371.00000000000006"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cIm-Lo-86M">
+                                        <rect key="frame" x="37.666666666666657" y="0.0" width="299" height="104"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VolgaGit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9t-4i-e05">
+                                                <rect key="frame" x="0.0" y="0.0" width="229.66666666666666" height="76.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitHub клиент для олимпиады Волга-IT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGN-h0-EaV">
+                                                <rect key="frame" x="0.0" y="84.666666666666629" width="299" height="19.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-kR-vP0">
+                                        <rect key="frame" x="20" y="232" width="334" height="139"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите свой логин и пароль от GitHub." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mM-3p-aef">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLL-7p-vJm">
+                                                <rect key="frame" x="0.0" y="24.999999999999943" width="334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AoG-w2-tDQ">
+                                                <rect key="frame" x="0.0" y="66.999999999999943" width="334" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwl-h5-asz">
+                                                <rect key="frame" x="0.0" y="108.99999999999994" width="334" height="30"/>
+                                                <state key="normal" title="Продолжить"/>
+                                                <connections>
+                                                    <action selector="login:" destination="TF9-Bu-N2p" eventType="touchUpInside" id="w89-tQ-t5P"/>
+                                                    <segue destination="n7Y-oy-Ccy" kind="presentation" modalPresentationStyle="fullScreen" id="tPh-RO-7uD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1dp-kR-vP0" firstAttribute="leading" secondItem="eDz-Rm-eD8" secondAttribute="leading" constant="20" id="cgR-bf-MLx"/>
+                                    <constraint firstAttribute="trailing" secondItem="1dp-kR-vP0" secondAttribute="trailing" constant="20" id="dOi-JS-bEV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eDz-Rm-eD8" firstAttribute="centerY" secondItem="Cgy-ZX-0do" secondAttribute="centerY" id="BVJ-hs-3m4"/>
+                            <constraint firstItem="Cgy-ZX-0do" firstAttribute="trailing" secondItem="eDz-Rm-eD8" secondAttribute="trailing" constant="20" id="Jld-J9-V1q"/>
+                            <constraint firstItem="eDz-Rm-eD8" firstAttribute="leading" secondItem="Cgy-ZX-0do" secondAttribute="leading" constant="20" id="O0V-c1-f7p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cgy-ZX-0do"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginField" destination="DLL-7p-vJm" id="Nbf-Oy-OhH"/>
+                        <outlet property="passwordField" destination="AoG-w2-tDQ" id="UDO-sR-nye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtS-qR-DGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="335" y="187"/>
         </scene>
         <!--Репозитории-->
         <scene sceneID="AKy-hx-BJh">
@@ -52,9 +134,16 @@
                         <viewLayoutGuide key="safeArea" id="3hl-YD-sVd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vwg-QU-bVv"/>
-                    <navigationItem key="navigationItem" title="Репозитории" id="Q9I-rK-cyz"/>
+                    <navigationItem key="navigationItem" title="Репозитории" id="Q9I-rK-cyz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="ih1-QI-0Mn">
+                            <connections>
+                                <action selector="logOut:" destination="N5E-GF-soE" id="mZx-OV-oww"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ew3-aO-LaO" id="IXp-ya-Jwt"/>
+                        <segue destination="TF9-Bu-N2p" kind="presentation" identifier="GoToLogin" modalPresentationStyle="fullScreen" id="OoX-KU-Coj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBn-B1-u5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -96,7 +185,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5K-Rb-KFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340.5797101449277" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1281" y="187"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tPh-RO-7uD"/>
+        <segue reference="OoX-KU-Coj"/>
+    </inferredMetricsTieBreakers>
 </document>
