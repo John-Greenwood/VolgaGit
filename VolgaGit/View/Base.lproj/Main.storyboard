@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="187"/>
+            <point key="canvasLocation" x="-461" y="187"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HlL-b1-HUO">
@@ -115,7 +115,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ew3-aO-LaO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ew3-aO-LaO">
                                 <rect key="frame" x="0.0" y="140" width="414" height="707"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -123,32 +123,70 @@
                                     <outlet property="delegate" destination="N5E-GF-soE" id="Bau-fW-7zI"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="nSY-fd-fry">
+                                <rect key="frame" x="188.66666666666666" y="458" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3hl-YD-sVd" firstAttribute="top" secondItem="ew3-aO-LaO" secondAttribute="top" id="4iu-lZ-8qk"/>
                             <constraint firstItem="3hl-YD-sVd" firstAttribute="trailing" secondItem="ew3-aO-LaO" secondAttribute="trailing" id="LGU-fo-qOJ"/>
+                            <constraint firstItem="nSY-fd-fry" firstAttribute="centerX" secondItem="3hl-YD-sVd" secondAttribute="centerX" id="NiS-7G-k0F"/>
                             <constraint firstItem="ew3-aO-LaO" firstAttribute="bottom" secondItem="3hl-YD-sVd" secondAttribute="bottom" constant="34" id="NuO-nW-vBg"/>
+                            <constraint firstItem="nSY-fd-fry" firstAttribute="centerY" secondItem="3hl-YD-sVd" secondAttribute="centerY" id="YfF-Us-je7"/>
                             <constraint firstItem="ew3-aO-LaO" firstAttribute="leading" secondItem="3hl-YD-sVd" secondAttribute="leading" id="yd0-9m-edd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3hl-YD-sVd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vwg-QU-bVv"/>
                     <navigationItem key="navigationItem" title="Репозитории" id="Q9I-rK-cyz">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="ih1-QI-0Mn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="ih1-QI-0Mn">
                             <connections>
                                 <action selector="logOut:" destination="N5E-GF-soE" id="mZx-OV-oww"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loader" destination="nSY-fd-fry" id="j2m-cu-I7D"/>
                         <outlet property="tableView" destination="ew3-aO-LaO" id="IXp-ya-Jwt"/>
                         <segue destination="TF9-Bu-N2p" kind="presentation" identifier="GoToLogin" modalPresentationStyle="fullScreen" id="OoX-KU-Coj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBn-B1-u5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2973.913043478261" y="-542.41071428571422"/>
+            <point key="canvasLocation" x="2813" y="-542"/>
+        </scene>
+        <!--Repository Detail View Controller-->
+        <scene sceneID="saa-1c-grC">
+            <objects>
+                <viewController storyboardIdentifier="RepositoryDetail" id="C7l-dS-WwJ" customClass="RepositoryDetailViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ppv-8S-hPB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is will be repository details!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ue5-sQ-K5Z">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ue5-sQ-K5Z" firstAttribute="top" secondItem="Oig-rf-taM" secondAttribute="top" constant="20" id="WgM-Tz-Kor"/>
+                            <constraint firstItem="Oig-rf-taM" firstAttribute="bottom" secondItem="Ue5-sQ-K5Z" secondAttribute="bottom" constant="20" id="aUt-Jc-O3c"/>
+                            <constraint firstItem="Oig-rf-taM" firstAttribute="trailing" secondItem="Ue5-sQ-K5Z" secondAttribute="trailing" constant="20" id="iBi-ka-7hW"/>
+                            <constraint firstItem="Ue5-sQ-K5Z" firstAttribute="leading" secondItem="Oig-rf-taM" secondAttribute="leading" constant="20" id="pHi-68-sd8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oig-rf-taM"/>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel" destination="Ue5-sQ-K5Z" id="sgi-gc-qqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5H-nv-qhG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3594" y="-542"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vv9-R5-cvt">
@@ -167,7 +205,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtb-0a-TTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="-542"/>
+            <point key="canvasLocation" x="2013" y="-542"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZJR-jd-Crf">
@@ -185,11 +223,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5K-Rb-KFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="187"/>
+            <point key="canvasLocation" x="1141" y="187"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tPh-RO-7uD"/>
+        <segue reference="dsO-NX-6Ep"/>
         <segue reference="OoX-KU-Coj"/>
     </inferredMetricsTieBreakers>
 </document>

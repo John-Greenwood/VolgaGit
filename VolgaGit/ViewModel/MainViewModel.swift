@@ -18,17 +18,18 @@ class MainViewModel {
     init(_ target: UIViewController) {
         self.target = target
         self.alertManager = AlertManager(target)
-        loadRepositories()
+        loadRepositories{}
     }
     
     func getRepository(for indexPath: IndexPath) -> Repository {
         return (repositories.value?[indexPath.row])!
     }
     
-    func loadRepositories() {
+    func loadRepositories(completion: @escaping ()->()) {
         APIManager.shared.fetchRepositories { (result, error, repositories) in
             if result { self.repositories.value = repositories! }
             else { self.alertManager.error(error!) }
+            completion()
         }
     }
 }

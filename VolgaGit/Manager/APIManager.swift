@@ -15,41 +15,47 @@ class APIManager {
         let instance = APIManager()
         return instance
     }()
-
-    private init() {}
     
     let decoder = JSONDecoder()
-    let apiurl = "https://api.github.com/"
     
-    func fetchRepositories(
-        completion: @escaping (
-        _ success: Bool,
-        _ error: AlertManager.Error?,
-        _ repositories: [Repository]?
-        )->()) {
-        AF.request("\(apiurl)repositories").responseJSON { (response) in
-            switch response.result {
-            case .success(_):
-                guard let data = response.data else { return }
+    func fetchRepositories(completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repositories: [Repository]?)->()) {
+        gitApi(method: "repositories") { (result, data) in
+            if result {
                 do {
-                    let result = try self.decoder.decode([RepositoriesResponse].self, from: data)
+                    let result = try self.decoder.decode([Repository].self, from: data!)
                     
                     var repositories: [Repository] = []
                     
+                    let group = DispatchGroup()
+                    
                     for repository in result {
-                        self.getRepository(with: repository.full_name!) { (result, error, repo) in
-                            if result { repositories.append(repo!) }
-                            completion(true, nil, repositories)
+                        group.enter()
+                        
+                        self.getRepository(with: repository.full_name!) { (result, error, repository) in
+                            if result { repositories.append(repository!) }
+                            group.leave()
                         }
                     }
                     
-                } catch {
-                    completion(false, .server, nil)
-                }
+                    group.notify(queue: .main) { completion(true, nil, repositories) }
+                    
+                } catch { completion(false, .needAuth, nil) }
                 
-            case .failure(_):
-                completion(false, .network, nil)
-            }
+            } else { completion(false, .network, nil) }
+        }
+    }
+    
+    func getRepository(with name: String, completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repository: Repository?)->()) {
+        gitApi(method: "repos/\(name)") { (result, data) in
+            if result {
+                do {
+                    let repository = try self.decoder.decode(Repository.self, from: data!)
+                    if repository.message == nil { completion(true, nil, repository) }
+                    else { completion(false, .needAuth, nil) }
+                    
+                } catch { completion(false, .server, nil) }
+                
+            } else { completion(false, .network, nil) }
         }
     }
     
@@ -64,51 +70,19 @@ class APIManager {
         }
     }
     
-    func getRepository(with name: String, completion: @escaping (
-        _ success: Bool,
-        _ error: AlertManager.Error?,
-        _ repository: Repository?
-        )->()) {
+    func gitApi(method: String, completion: @escaping (_ result: Bool, _ data: Data?)->()) {
+        let apiurl = "https://api.github.com/"
         
         let username = DefaultsManager.shared.login ?? "login"
         let password = DefaultsManager.shared.password ?? "pass"
-
         let credentialData = "\(username):\(password)".data(using: .utf8)!
         let base64Credentials = credentialData.base64EncodedString()
         let headers: HTTPHeaders = ["Authorization": "Basic \(base64Credentials)"]
-        
-        AF.request("\(apiurl)repos/\(name)", headers: headers).responseJSON { (response) in
-            switch response.result {
-            case .success(_):
-                guard let data = response.data else { return }
-                
-                do {
-                    let repo = try self.decoder.decode(GetRepository.self, from: data)
-                    
-                    if repo.message == nil {
-                        self.loadImage(url: repo.owner?.avatar_url ?? "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png") { (image) in
-                            
-                            let repository = Repository(
-                            title: repo.full_name!,
-                            description: repo.description ?? "",
-                            userAvatar: image,
-                            authorName: repo.owner!.login!,
-                            forksCount: repo.forks!,
-                            starsCount: repo.stargazers_count!,
-                            language: repo.language ?? "-")
 
-                            completion(true, nil, repository)
-                        }
-                        
-                    } else {
-                        completion(false, .needAuth, nil)
-                        print(repo.message!)
-                    }
-                    
-                } catch { completion(false, .server, nil) }
-                
-            case .failure(_):
-                completion(false, .network, nil)
+        AF.request("\(apiurl)\(method)", headers: headers).responseJSON { (response) in
+            switch response.result {
+            case .success(_): completion(true, response.data)
+            case .failure(_): completion(false, nil)
             }
         }
     }
