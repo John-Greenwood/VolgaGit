@@ -27,13 +27,18 @@ import UIKit
             
             titleLabel.text = repository.name
             descriptionLabel.text = repository.description
-//            userImage.image = repository.userAvatar
             userNameLabel.text = repository.owner?.login
             languageLabel.text = repository.language
             forkCountLabel.text = "\(repository.forks_count ?? 0)"
             starCountLabel.text = "\(repository.stargazers_count ?? 0)"
             
             userImage.layer.cornerRadius = userImage.frame.size.height / 2
+            
+            if let avatarurl = repository.owner?.avatar_url {
+                APIManager.shared.loadImage(url: avatarurl) { (image) in
+                    self.userImage.image = image
+                }
+            }
         }
     }
     

@@ -101,7 +101,6 @@
 				52B6154A2427BCAD00182FB2 /* SupportFiles */,
 				52B6154B2427BFBD00182FB2 /* View */,
 				52B615522427C5DD00182FB2 /* ViewModel */,
-				52B6154C2427C46200182FB2 /* ViewController */,
 				52B6153F2427AF3500182FB2 /* Assets.xcassets */,
 				52B6153C2427AF3100182FB2 /* VolgaGit.xcdatamodeld */,
 			);
@@ -121,9 +120,10 @@
 		52B6154B2427BFBD00182FB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				52A1210D2431C73F001E6152 /* RepositoryCell */,
 				52B615412427AF3500182FB2 /* LaunchScreen.storyboard */,
 				52B615392427AF3100182FB2 /* Main.storyboard */,
+				52A1210D2431C73F001E6152 /* RepositoryCell */,
+				52B6154C2427C46200182FB2 /* ViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,8 +160,8 @@
 			children = (
 				52E66B32242BA8A6005A079A /* Box.swift */,
 				520030CB2431D92400A32E72 /* APIManager.swift */,
-				520030CD2431DA1200A32E72 /* AlertManager.swift */,
 				520030D624322E7D00A32E72 /* DefaultsManager.swift */,
+				520030CD2431DA1200A32E72 /* AlertManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";

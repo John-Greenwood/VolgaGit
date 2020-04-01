@@ -16,6 +16,8 @@ class APIManager {
         return instance
     }()
     
+    private init() {}
+    
     let decoder = JSONDecoder()
     
     func fetchRepositories(completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repositories: [Repository]?)->()) {
