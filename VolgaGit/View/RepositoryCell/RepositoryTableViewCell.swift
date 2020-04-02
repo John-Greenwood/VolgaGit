@@ -21,23 +21,27 @@ import UIKit
     @IBOutlet weak var forkCountLabel: UILabel!
     @IBOutlet weak var starCountLabel: UILabel!
     
+    @IBOutlet var loadingViews: [UIView]!
+    
     var repository: Repository? {
-        didSet {
-            guard let repository = repository else { return }
-            
-            titleLabel.text = repository.name
-            descriptionLabel.text = repository.description
-            userNameLabel.text = repository.owner?.login
-            languageLabel.text = repository.language
-            forkCountLabel.text = "\(repository.forks_count ?? 0)"
-            starCountLabel.text = "\(repository.stargazers_count ?? 0)"
-            
-            userImage.layer.cornerRadius = userImage.frame.size.height / 2
-            
-            if let avatarurl = repository.owner?.avatar_url {
-                APIManager.shared.loadImage(url: avatarurl) { (image) in
-                    self.userImage.image = image
-                }
+        didSet { configure() }
+    }
+    
+    func configure() {
+        guard let repository = repository else { return }
+        
+        titleLabel.text = repository.name
+        descriptionLabel.text = repository.description
+        userNameLabel.text = repository.owner?.login
+        languageLabel.text = repository.language
+        forkCountLabel.text = "\(repository.forks_count ?? 0)"
+        starCountLabel.text = "\(repository.stargazers_count ?? 0)"
+        
+        userImage.layer.cornerRadius = userImage.frame.size.height / 2
+        
+        if let avatarurl = repository.owner?.avatar_url {
+            APIManager.shared.loadImage(url: avatarurl) { (image) in
+                self.userImage.image = image
             }
         }
     }

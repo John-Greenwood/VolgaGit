@@ -14,7 +14,7 @@ class RepositoryDetailViewModel {
     let repository: Repository
     
     var commits: Box<[Commit]?> = Box(nil)
-    var commitsCount: Int { get { return commits.value?.count ?? 0} }
+    var commitsCount: Int { get { return commits.value?.count ?? 0 } }
     
     init(_ target: UIViewController, repository: Repository) {
         self.target = target

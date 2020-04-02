@@ -116,24 +116,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ew3-aO-LaO">
-                                <rect key="frame" x="0.0" y="140" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="759"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryTableViewCell" rowHeight="156" id="6Qx-8H-6Vb" customClass="RepositoryTableViewCell" customModule="VolgaGit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="156"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Qx-8H-6Vb" id="GGa-7S-2Sm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="RepositoryTableViewCell"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="N5E-GF-soE" id="KoZ-UC-xSS"/>
                                     <outlet property="delegate" destination="N5E-GF-soE" id="Bau-fW-7zI"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="nSY-fd-fry">
-                                <rect key="frame" x="188.66666666666666" y="458" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3hl-YD-sVd" firstAttribute="top" secondItem="ew3-aO-LaO" secondAttribute="top" id="4iu-lZ-8qk"/>
                             <constraint firstItem="3hl-YD-sVd" firstAttribute="trailing" secondItem="ew3-aO-LaO" secondAttribute="trailing" id="LGU-fo-qOJ"/>
-                            <constraint firstItem="nSY-fd-fry" firstAttribute="centerX" secondItem="3hl-YD-sVd" secondAttribute="centerX" id="NiS-7G-k0F"/>
                             <constraint firstItem="ew3-aO-LaO" firstAttribute="bottom" secondItem="3hl-YD-sVd" secondAttribute="bottom" constant="34" id="NuO-nW-vBg"/>
-                            <constraint firstItem="nSY-fd-fry" firstAttribute="centerY" secondItem="3hl-YD-sVd" secondAttribute="centerY" id="YfF-Us-je7"/>
                             <constraint firstItem="ew3-aO-LaO" firstAttribute="leading" secondItem="3hl-YD-sVd" secondAttribute="leading" id="yd0-9m-edd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3hl-YD-sVd"/>
@@ -147,7 +162,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="loader" destination="nSY-fd-fry" id="j2m-cu-I7D"/>
                         <outlet property="tableView" destination="ew3-aO-LaO" id="IXp-ya-Jwt"/>
                         <segue destination="TF9-Bu-N2p" kind="presentation" identifier="GoToLogin" modalPresentationStyle="fullScreen" id="OoX-KU-Coj"/>
                         <segue destination="C7l-dS-WwJ" kind="show" identifier="ShowRepositoryDetail" id="c6L-Qa-N2B"/>
@@ -155,18 +169,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBn-B1-u5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2813" y="-542"/>
+            <point key="canvasLocation" x="2811.594202898551" y="-542.41071428571422"/>
         </scene>
         <!--Репозиторий-->
         <scene sceneID="saa-1c-grC">
             <objects>
                 <viewController storyboardIdentifier="RepositoryDetail" id="C7l-dS-WwJ" customClass="RepositoryDetailViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ppv-8S-hPB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-rD-Din">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CLL-La-vNU">
                                         <rect key="frame" x="20" y="8" width="374" height="73"/>
@@ -182,7 +196,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xox-KQ-6Dy">
-                                                        <rect key="frame" x="56" y="1.3333333333333428" width="318" height="45.666666666666664"/>
+                                                        <rect key="frame" x="56" y="1.3333333333333321" width="318" height="45.666666666666671"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автор репозитория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbD-Ya-JkJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="318" height="17"/>
@@ -209,7 +223,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-Lm-bC1">
-                                        <rect key="frame" x="20" y="89" width="374" height="564"/>
+                                        <rect key="frame" x="20" y="89" width="374" height="699"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Ehv-oK-Zym" customClass="CommitTableViewCell" customModule="VolgaGit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="374" height="80"/>
@@ -223,25 +237,22 @@
                                                 </userDefinedRuntimeAttributes>
                                             </tableViewCell>
                                         </prototypes>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="dataSource" destination="C7l-dS-WwJ" id="fAC-Ml-tD9"/>
                                             <outlet property="delegate" destination="C7l-dS-WwJ" id="qe9-zh-mFM"/>
                                         </connections>
                                     </tableView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jxq-SZ-hdc">
-                                        <rect key="frame" x="20" y="105" width="374" height="20"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="Jxq-SZ-hdc" firstAttribute="leading" secondItem="AZv-Lm-bC1" secondAttribute="leading" id="2hM-8B-WLC"/>
                                     <constraint firstItem="CLL-La-vNU" firstAttribute="leading" secondItem="lFB-rD-Din" secondAttribute="leading" constant="20" id="3B5-g3-2u3"/>
                                     <constraint firstItem="AZv-Lm-bC1" firstAttribute="top" secondItem="CLL-La-vNU" secondAttribute="bottom" constant="8" id="3qQ-0H-jDX"/>
                                     <constraint firstItem="CLL-La-vNU" firstAttribute="top" secondItem="lFB-rD-Din" secondAttribute="top" constant="8" id="4J9-Bn-pHt"/>
-                                    <constraint firstItem="Jxq-SZ-hdc" firstAttribute="trailing" secondItem="AZv-Lm-bC1" secondAttribute="trailing" id="75L-Vf-x0m"/>
                                     <constraint firstItem="AZv-Lm-bC1" firstAttribute="leading" secondItem="lFB-rD-Din" secondAttribute="leading" constant="20" id="98p-WQ-0SN"/>
                                     <constraint firstAttribute="trailing" secondItem="CLL-La-vNU" secondAttribute="trailing" constant="20" id="Pja-aH-tNt"/>
-                                    <constraint firstItem="Jxq-SZ-hdc" firstAttribute="top" secondItem="AZv-Lm-bC1" secondAttribute="top" constant="16" id="qCa-fd-tNc"/>
                                     <constraint firstAttribute="bottom" secondItem="AZv-Lm-bC1" secondAttribute="bottom" constant="20" id="uva-EJ-Wvp"/>
                                     <constraint firstAttribute="trailing" secondItem="AZv-Lm-bC1" secondAttribute="trailing" constant="20" id="viD-K1-oSg"/>
                                 </constraints>
@@ -258,7 +269,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Репозиторий" largeTitleDisplayMode="always" id="8tD-X7-SEl"/>
                     <connections>
-                        <outlet property="loader" destination="Jxq-SZ-hdc" id="0sU-j3-dUP"/>
                         <outlet property="tableView" destination="AZv-Lm-bC1" id="Jk6-b2-S2D"/>
                         <outlet property="userImage" destination="Dwk-VD-1lJ" id="OUR-hc-ygS"/>
                         <outlet property="userNameLabel" destination="JJX-ur-IX8" id="Z0H-72-1q5"/>

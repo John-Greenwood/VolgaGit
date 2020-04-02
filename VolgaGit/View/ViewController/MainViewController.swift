@@ -7,18 +7,23 @@
 //
 
 import UIKit
+import SkeletonView
 
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     var model: MainViewModel!
     var selectedIndexPath: IndexPath?
     let refreshControl = UIRefreshControl()
+    var isLoading = true
+    let cellIdentifier = "RepositoryTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nibName = UINib(nibName: "RepositoryTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: cellIdentifier)
         
         tableView.separatorStyle = .none
         
@@ -27,15 +32,12 @@ class MainViewController: UIViewController {
         model = MainViewModel(self)
         model.repositories.bind { (value) in
             if value != nil {
+                self.isLoading = false
                 self.tableView.reloadData()
                 self.tableView.separatorStyle = .singleLine
-                self.loader.stopAnimating()
                 self.tableView.addSubview(self.refreshControl)
             }
         }
-        
-        let nibName = UINib(nibName: "RepositoryTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "RepositoryTableViewCell")
     }
     
     @objc func refresh() {
@@ -69,6 +71,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        if isLoading { return nil }
         
         selectedIndexPath = indexPath
         
@@ -102,14 +105,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading { return 3 }
         return model.repositoriesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RepositoryTableViewCell
         
-        cell.repository = model.getRepository(for: indexPath)
+        if isLoading {
+            cell.showAnimatedGradientSkeleton()
+            
+        } else {
+            cell.hideSkeleton()
+            cell.repository = model.getRepository(for: indexPath)
+        }
         
         return cell
     }
@@ -128,6 +138,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if isLoading { return }
         
         selectedIndexPath = indexPath
         performSegue(withIdentifier: "ShowRepositoryDetail", sender: self)

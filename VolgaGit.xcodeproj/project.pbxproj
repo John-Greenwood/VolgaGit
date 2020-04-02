@@ -150,8 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				528C8F5F243363F4003F7A65 /* RepositoryDetailViewController.swift */,
-				52B615372427AF3100182FB2 /* navigatorViewController.swift */,
 				52B6154D2427C48000182FB2 /* MainViewController.swift */,
+				52B615372427AF3100182FB2 /* navigatorViewController.swift */,
 				521EF400243238DE008E0FD2 /* LoginViewController.swift */,
 			);
 			path = ViewController;

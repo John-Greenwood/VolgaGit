@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import SkeletonView
 
 class RepositoryDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
     var repository: Repository?
     var model: RepositoryDetailViewModel!
     let refresher = UIRefreshControl()
+    var isLoading = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class RepositoryDetailViewController: UIViewController {
         model = RepositoryDetailViewModel(self, repository: repository!)
         model.commits.bind { (commits) in
             if commits != nil {
-                self.loader.stopAnimating()
+                self.isLoading = false
                 self.tableView.reloadData()
                 self.tableView.addSubview(self.refresher)
             }
@@ -60,13 +61,20 @@ class RepositoryDetailViewController: UIViewController {
 
 extension RepositoryDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.commitsCount
+        if isLoading { return 10 }
+        return model.commitsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommitCell", for: indexPath) as! CommitTableViewCell
-        
-        cell.commit = model.getCommit(for: indexPath)
+
+        if isLoading {
+            cell.showAnimatedGradientSkeleton()
+            
+        } else {
+            cell.hideSkeleton()
+            cell.commit = model.getCommit(for: indexPath)
+        }
         
         return cell
     }

@@ -15,28 +15,35 @@ import UIKit
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var circle: UIView!
-    
-    var commit: Commit? {
+    @IBOutlet weak var userImage: UIImageView! {
         didSet {
-            guard let commit = commit else { return }
-            
-            messageLabel.text = commit.commit?.message
-            dateLabel.text = commit.commit?.committer?.date
-            
-            if let gitUser = commit.author {
-                usernameLabel.text = gitUser.login
-                APIManager.shared.loadImage(url: gitUser.avatar_url!) { (image) in
-                    self.userImage.image = image
-                }
-            } else {
-                usernameLabel.text = "\(commit.commit?.committer?.name ?? "") (\(commit.commit?.committer?.email ?? ""))"
-            }
-            
-            circle.layer.cornerRadius = circle.layer.bounds.height / 2
             userImage.layer.cornerRadius = userImage.layer.bounds.height / 2
+        }
+    }
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var circle: UIView! {
+        didSet {
+            circle.layer.cornerRadius = circle.layer.frame.height / 2
+        }
+    }
+    
+    @IBOutlet var loadingViews: [UIView]!
+    
+    var commit: Commit? { didSet { configure() } }
+    
+    func configure() {
+        guard let commit = commit else { return }
+        
+        messageLabel.text = commit.commit?.message
+        dateLabel.text = commit.commit?.committer?.date
+        
+        if let gitUser = commit.author {
+            usernameLabel.text = gitUser.login
+            APIManager.shared.loadImage(url: gitUser.avatar_url!) { (image) in
+                self.userImage.image = image
+            }
+        } else {
+            usernameLabel.text = "\(commit.commit?.committer?.name ?? "") (\(commit.commit?.committer?.email ?? ""))"
         }
     }
     

@@ -4,4 +4,5 @@
 target 'VolgaGit' do
 	pod 'Alamofire', '~> 5.0'
 	pod 'IQKeyboardManagerSwift'
+	pod 'SkeletonView'
 end
