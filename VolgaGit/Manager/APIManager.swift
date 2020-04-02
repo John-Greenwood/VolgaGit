@@ -29,17 +29,29 @@ class APIManager {
                     var repositories: [Repository] = []
                     
                     let group = DispatchGroup()
-                    
                     for repository in result {
                         group.enter()
-                        
                         self.getRepository(with: repository.full_name!) { (result, error, repository) in
                             if result { repositories.append(repository!) }
                             group.leave()
                         }
                     }
                     
-                    group.notify(queue: .main) { completion(true, nil, repositories) }
+                    group.notify(queue: .main) {
+                        var repositoriesResult: [Repository] = []
+                        
+                        for repository in result {
+                            let name = repository.full_name
+                            
+                            let repo = repositories.first { (repository) -> Bool in
+                                repository.full_name == name
+                            }
+                            
+                            if repo != nil { repositoriesResult.append(repo!) }
+                        }
+                        
+                        completion(true, nil, repositoriesResult)
+                    }
                     
                 } catch { completion(false, .needAuth, nil) }
                 
@@ -56,6 +68,20 @@ class APIManager {
                     else { completion(false, .needAuth, nil) }
                     
                 } catch { completion(false, .server, nil) }
+                
+            } else { completion(false, .network, nil) }
+        }
+    }
+    
+    func getCommits(for repository: Repository, completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ commits: [Commit]?)->()) {
+        gitApi(method: "repos/\(repository.full_name!)/commits") { (success, data) in
+            if success {
+                do {
+                    let commits = try self.decoder.decode([Commit].self, from: data!)
+                    
+                    completion(true, nil, commits)
+                    
+                } catch { completion(false, .needAuth, nil) }
                 
             } else { completion(false, .network, nil) }
         }
@@ -80,7 +106,7 @@ class APIManager {
         let credentialData = "\(username):\(password)".data(using: .utf8)!
         let base64Credentials = credentialData.base64EncodedString()
         let headers: HTTPHeaders = ["Authorization": "Basic \(base64Credentials)"]
-
+        
         AF.request("\(apiurl)\(method)", headers: headers).responseJSON { (response) in
             switch response.result {
             case .success(_): completion(true, response.data)
