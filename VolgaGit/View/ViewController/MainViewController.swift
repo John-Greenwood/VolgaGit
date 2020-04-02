@@ -14,12 +14,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     var model: MainViewModel!
+    var selectedIndexPath: IndexPath?
     let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.separatorStyle = .none
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 
         model = MainViewModel(self)
         model.repositories.bind { (value) in
@@ -27,14 +30,12 @@ class MainViewController: UIViewController {
                 self.tableView.reloadData()
                 self.tableView.separatorStyle = .singleLine
                 self.loader.stopAnimating()
+                self.tableView.addSubview(self.refreshControl)
             }
         }
         
         let nibName = UINib(nibName: "RepositoryTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "RepositoryTableViewCell")
-        
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        tableView.addSubview(refreshControl)
     }
     
     @objc func refresh() {
@@ -49,11 +50,27 @@ class MainViewController: UIViewController {
         
         performSegue(withIdentifier: "GoToLogin", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowRepositoryDetail":
+            guard
+                let controller = segue.destination as? RepositoryDetailViewController,
+                let selectedIndexPath = selectedIndexPath
+                else { return }
+            
+            controller.repository = model.getRepository(for: selectedIndexPath)
+        default:
+            break
+        }
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        selectedIndexPath = indexPath
         
         let configuration = UIContextMenuConfiguration(
             identifier: nil,
@@ -80,8 +97,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
         animator.addCompletion {
-            guard let controller = animator.previewViewController else { return }
-            self.navigationController?.pushViewController(controller, animated: true)
+            self.performSegue(withIdentifier: "ShowRepositoryDetail", sender: self)
         }
     }
     
@@ -113,10 +129,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let controller = storyboard?.instantiateViewController(identifier: "RepositoryDetail") as? RepositoryDetailViewController else { return }
-        
-        controller.repository = self.model.getRepository(for: indexPath)
-        
-        navigationController?.pushViewController(controller, animated: true)
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: "ShowRepositoryDetail", sender: self)
     }
 }

@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+struct Commit: Codable {
+    
+    let commit: Contents?
+    let author: Autor?
+    
+    struct Autor: Codable {
+        let login: String?
+        let avatar_url: String?
+    }
+    
+    struct Contents: Codable {
+        
+        let message: String?
+        let committer: Committer?
+        
+        struct Committer: Codable {
+            let name: String?
+            let email: String?
+            let date: String?
+        }
+    }
+}

@@ -13,6 +13,10 @@
 		520030D5243206FE00A32E72 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520030D4243206FE00A32E72 /* Repository.swift */; };
 		520030D724322E7D00A32E72 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520030D624322E7D00A32E72 /* DefaultsManager.swift */; };
 		521EF401243238DF008E0FD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EF400243238DE008E0FD2 /* LoginViewController.swift */; };
+		526B3F882434AEAE00AD7611 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */; };
+		526B3F892434AEAE00AD7611 /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */; };
+		526B3F8B2434DECE00AD7611 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F8A2434DECE00AD7611 /* Commit.swift */; };
+		526B3F8D2434E07000AD7611 /* RepositoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F8C2434E07000AD7611 /* RepositoryDetailViewModel.swift */; };
 		528C8F60243363F4003F7A65 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C8F5F243363F4003F7A65 /* RepositoryDetailViewController.swift */; };
 		52A121102431C75F001E6152 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */; };
 		52A121112431C75F001E6152 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */; };
@@ -34,6 +38,10 @@
 		520030D4243206FE00A32E72 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		520030D624322E7D00A32E72 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		521EF400243238DE008E0FD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
+		526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
+		526B3F8A2434DECE00AD7611 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		526B3F8C2434E07000AD7611 /* RepositoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewModel.swift; sourceTree = "<group>"; };
 		528C8F5F243363F4003F7A65 /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepositoryDetailViewController.swift; path = VolgaGit/RepositoryDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -66,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		526B3F852434AE8800AD7611 /* CommitCell */ = {
+			isa = PBXGroup;
+			children = (
+				526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */,
+				526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */,
+			);
+			path = CommitCell;
+			sourceTree = "<group>";
+		};
 		52A1210D2431C73F001E6152 /* RepositoryCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +116,8 @@
 				52E66B31242BA89B005A079A /* Manager */,
 				52B615552427C60F00182FB2 /* Model */,
 				52B6154A2427BCAD00182FB2 /* SupportFiles */,
-				52B6154B2427BFBD00182FB2 /* View */,
 				52B615522427C5DD00182FB2 /* ViewModel */,
+				52B6154B2427BFBD00182FB2 /* View */,
 				52B6153F2427AF3500182FB2 /* Assets.xcassets */,
 				52B6153C2427AF3100182FB2 /* VolgaGit.xcdatamodeld */,
 			);
@@ -122,6 +139,7 @@
 			children = (
 				52B615412427AF3500182FB2 /* LaunchScreen.storyboard */,
 				52B615392427AF3100182FB2 /* Main.storyboard */,
+				526B3F852434AE8800AD7611 /* CommitCell */,
 				52A1210D2431C73F001E6152 /* RepositoryCell */,
 				52B6154C2427C46200182FB2 /* ViewController */,
 			);
@@ -143,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				52B615532427C5EF00182FB2 /* MainViewModel.swift */,
+				526B3F8C2434E07000AD7611 /* RepositoryDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -151,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				520030D4243206FE00A32E72 /* Repository.swift */,
+				526B3F8A2434DECE00AD7611 /* Commit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +266,7 @@
 				52B615402427AF3500182FB2 /* Assets.xcassets in Resources */,
 				52B6153B2427AF3100182FB2 /* Main.storyboard in Resources */,
 				52A121112431C75F001E6152 /* RepositoryTableViewCell.xib in Resources */,
+				526B3F892434AEAE00AD7611 /* CommitTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526B3F8B2434DECE00AD7611 /* Commit.swift in Sources */,
 				520030D5243206FE00A32E72 /* Repository.swift in Sources */,
+				526B3F8D2434E07000AD7611 /* RepositoryDetailViewModel.swift in Sources */,
 				528C8F60243363F4003F7A65 /* RepositoryDetailViewController.swift in Sources */,
 				52E66B33242BA8A6005A079A /* Box.swift in Sources */,
 				520030CE2431DA1200A32E72 /* AlertManager.swift in Sources */,
@@ -291,6 +314,7 @@
 				52A121102431C75F001E6152 /* RepositoryTableViewCell.swift in Sources */,
 				520030D724322E7D00A32E72 /* DefaultsManager.swift in Sources */,
 				52B615342427AF3100182FB2 /* AppDelegate.swift in Sources */,
+				526B3F882434AEAE00AD7611 /* CommitTableViewCell.swift in Sources */,
 				52B6153E2427AF3100182FB2 /* VolgaGit.xcdatamodeld in Sources */,
 				521EF401243238DF008E0FD2 /* LoginViewController.swift in Sources */,
 				52B615362427AF3100182FB2 /* SceneDelegate.swift in Sources */,
