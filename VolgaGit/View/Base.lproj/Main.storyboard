@@ -143,18 +143,39 @@
                                     <outlet property="delegate" destination="N5E-GF-soE" id="Bau-fW-7zI"/>
                                 </connections>
                             </tableView>
+                            <stackView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-p2-OAH">
+                                <rect key="frame" x="79" y="322.66666666666669" width="256" height="256.00000000000006"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="wifi.exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="535-z1-3m3">
+                                        <rect key="frame" x="0.0" y="1.3333333333333286" width="256" height="195.33333333333329"/>
+                                        <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет интернет соединения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klC-EA-jf8">
+                                        <rect key="frame" x="0.0" y="198.66666666666669" width="256" height="57.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="H40-6b-5h6"/>
+                                    <constraint firstAttribute="width" constant="256" id="QXA-d8-JCB"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3hl-YD-sVd" firstAttribute="top" secondItem="ew3-aO-LaO" secondAttribute="top" id="4iu-lZ-8qk"/>
+                            <constraint firstItem="fXI-p2-OAH" firstAttribute="centerY" secondItem="3hl-YD-sVd" secondAttribute="centerY" id="75v-qR-Nbw"/>
                             <constraint firstItem="3hl-YD-sVd" firstAttribute="trailing" secondItem="ew3-aO-LaO" secondAttribute="trailing" id="LGU-fo-qOJ"/>
                             <constraint firstItem="ew3-aO-LaO" firstAttribute="bottom" secondItem="3hl-YD-sVd" secondAttribute="bottom" constant="34" id="NuO-nW-vBg"/>
+                            <constraint firstItem="fXI-p2-OAH" firstAttribute="centerX" secondItem="3hl-YD-sVd" secondAttribute="centerX" id="cUh-Zz-Yav"/>
                             <constraint firstItem="ew3-aO-LaO" firstAttribute="leading" secondItem="3hl-YD-sVd" secondAttribute="leading" id="yd0-9m-edd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3hl-YD-sVd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vwg-QU-bVv"/>
-                    <navigationItem key="navigationItem" title="Репозитории" id="Q9I-rK-cyz">
+                    <navigationItem key="navigationItem" title="Репозитории" largeTitleDisplayMode="always" id="Q9I-rK-cyz">
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="ih1-QI-0Mn">
                             <connections>
                                 <action selector="logOut:" destination="N5E-GF-soE" id="mZx-OV-oww"/>
@@ -162,6 +183,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="errorView" destination="fXI-p2-OAH" id="aoE-1p-Pa4"/>
                         <outlet property="tableView" destination="ew3-aO-LaO" id="IXp-ya-Jwt"/>
                         <segue destination="TF9-Bu-N2p" kind="presentation" identifier="GoToLogin" modalPresentationStyle="fullScreen" id="OoX-KU-Coj"/>
                         <segue destination="C7l-dS-WwJ" kind="show" identifier="ShowRepositoryDetail" id="c6L-Qa-N2B"/>
@@ -176,11 +198,11 @@
             <objects>
                 <viewController storyboardIdentifier="RepositoryDetail" id="C7l-dS-WwJ" customClass="RepositoryDetailViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ppv-8S-hPB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-rD-Din">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CLL-La-vNU">
                                         <rect key="frame" x="20" y="8" width="374" height="73"/>
@@ -196,7 +218,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xox-KQ-6Dy">
-                                                        <rect key="frame" x="56" y="1.3333333333333321" width="318" height="45.666666666666671"/>
+                                                        <rect key="frame" x="56" y="1.3333333333333428" width="318" height="45.666666666666664"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автор репозитория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbD-Ya-JkJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="318" height="17"/>
@@ -223,9 +245,9 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-Lm-bC1">
-                                        <rect key="frame" x="20" y="89" width="374" height="699"/>
+                                        <rect key="frame" x="20" y="89" width="374" height="564"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Ehv-oK-Zym" customClass="CommitTableViewCell" customModule="VolgaGit" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommitCell" rowHeight="80" id="Ehv-oK-Zym" customClass="CommitTableViewCell" customModule="VolgaGit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="374" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ehv-oK-Zym" id="h2h-es-Mxh">
@@ -322,5 +344,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SampleAvatar" width="300" height="300"/>
+        <image name="wifi.exclamationmark" catalog="system" width="128" height="101"/>
     </resources>
 </document>

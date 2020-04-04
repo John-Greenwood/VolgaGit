@@ -12,6 +12,7 @@ import SkeletonView
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorView: UIStackView!
     
     var model: MainViewModel!
     var selectedIndexPath: IndexPath?
@@ -31,17 +32,26 @@ class MainViewController: UIViewController {
 
         model = MainViewModel(self)
         model.repositories.bind { (value) in
-            if value != nil {
-                self.isLoading = false
-                self.tableView.reloadData()
+            if value?.isEmpty ?? false {
+                self.endLoading()
+                self.errorView.isHidden = false
+                
+            } else if value != nil {
+                self.endLoading()
                 self.tableView.separatorStyle = .singleLine
-                self.tableView.addSubview(self.refreshControl)
             }
         }
     }
     
+    func endLoading() {
+        isLoading = false
+        tableView.reloadData()
+        tableView.addSubview(self.refreshControl)
+    }
+    
     @objc func refresh() {
-        model.loadRepositories {
+        model.loadRepositories { result in
+            if result { self.errorView.isHidden = true }
             self.refreshControl.endRefreshing()
         }
     }

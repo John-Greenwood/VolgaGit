@@ -18,18 +18,22 @@ class MainViewModel {
     init(_ target: UIViewController) {
         self.target = target
         self.alertManager = AlertManager(target)
-        loadRepositories{}
+        loadRepositories{ _ in }
     }
     
     func getRepository(for indexPath: IndexPath) -> Repository {
         return (repositories.value?[indexPath.row])!
     }
     
-    func loadRepositories(completion: @escaping ()->()) {
+    func loadRepositories(completion: @escaping (_ result: Bool)->()) {
         APIManager.shared.fetchRepositories { (result, error, repositories) in
             if result { self.repositories.value = repositories! }
-            else { self.alertManager.error(error!) }
-            completion()
+            else {
+                self.repositories.value = []
+                if error! == .needAuth { AlertManager(self.target).error(error!) }
+            }
+            
+            completion(result)
         }
     }
 }
