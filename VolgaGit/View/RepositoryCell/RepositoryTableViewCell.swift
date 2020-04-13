@@ -20,6 +20,7 @@ import UIKit
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var forkCountLabel: UILabel!
     @IBOutlet weak var starCountLabel: UILabel!
+    @IBOutlet weak var languageImage: UIImageView!
     
     @IBOutlet var loadingViews: [UIView]!
     
@@ -33,7 +34,7 @@ import UIKit
         titleLabel.text = repository.name
         descriptionLabel.text = repository.description
         userNameLabel.text = repository.owner?.login
-        languageLabel.text = repository.language
+        languageLabel.text = repository.language ?? "Unknown"
         forkCountLabel.text = "\(repository.forks_count ?? 0)"
         starCountLabel.text = "\(repository.stargazers_count ?? 0)"
         
@@ -44,6 +45,10 @@ import UIKit
                 self.userImage.image = image
             }
         }
+        
+        let color = LanguageColors.getColor(for: repository)
+        languageImage.tintColor = color
+        languageLabel.textColor = color
     }
     
     override func awakeFromNib() {

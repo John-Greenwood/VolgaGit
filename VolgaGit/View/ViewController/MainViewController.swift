@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     var isLoading = true
     let cellIdentifier = "RepositoryTableViewCell"
+    var pagination = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +44,24 @@ class MainViewController: UIViewController {
         }
     }
     
+    func loadNextRepositories () {
+        pagination = false
+        tableView.reloadSections([1], with: .bottom)
+        model.loadRepositories { (_) in
+            self.pagination = true
+            self.tableView.reloadSections([1], with: .bottom)
+        }
+    }
+    
     func endLoading() {
+        self.errorView.isHidden = true
         isLoading = false
         tableView.reloadData()
         tableView.addSubview(self.refreshControl)
     }
     
     @objc func refresh() {
-        model.loadRepositories { result in
+        model.loadRepositories(true) { result in
             if result { self.errorView.isHidden = true }
             self.refreshControl.endRefreshing()
         }
@@ -80,9 +91,13 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        if isLoading { return nil }
-        
+        if isLoading || indexPath.section != 0 { return nil }
+
         selectedIndexPath = indexPath
         
         let configuration = UIContextMenuConfiguration(
@@ -115,11 +130,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isLoading { return 3 }
+        if section == 1 { return 1 }
+        if isLoading { return 5 }
         return model.repositoriesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 1 {
+            if pagination { return UITableViewCell() }
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loader") ?? UITableViewCell()
+            return cell
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RepositoryTableViewCell
         
@@ -135,7 +158,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if isLoading { return nil }
+        if isLoading || indexPath.section == 1 { return nil }
         
         let addToFavorites = UIContextualAction(style: .normal, title: "Добавить в избранное") { (action, view, completion) in
             completion(true)
@@ -150,9 +173,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if isLoading { return }
+        if isLoading || indexPath.section == 1 { return }
         
         selectedIndexPath = indexPath
         performSegue(withIdentifier: "ShowRepositoryDetail", sender: self)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        if deltaOffset <= 0, pagination {
+            loadNextRepositories()
+        }
     }
 }

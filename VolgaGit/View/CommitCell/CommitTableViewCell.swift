@@ -21,6 +21,7 @@ import UIKit
         }
     }
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var line: UIView!
     @IBOutlet weak var circle: UIView! {
         didSet {
             circle.layer.cornerRadius = circle.layer.frame.height / 2
@@ -30,6 +31,7 @@ import UIKit
     @IBOutlet var loadingViews: [UIView]!
     
     var commit: Commit? { didSet { configure() } }
+    var color: UIColor?
     
     func configure() {
         guard let commit = commit else { return }
@@ -45,6 +47,10 @@ import UIKit
         } else {
             usernameLabel.text = "\(commit.commit?.committer?.name ?? "") (\(commit.commit?.committer?.email ?? ""))"
         }
+        
+        guard let color = color else { return }
+        line.backgroundColor = color
+        circle.backgroundColor = color
     }
     
     override func awakeFromNib() {

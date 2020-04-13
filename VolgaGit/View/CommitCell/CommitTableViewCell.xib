@@ -18,7 +18,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIu-bJ-IbN">
                         <rect key="frame" x="8" y="8" width="16" height="16"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="SMi-Ax-dSu"/>
                             <constraint firstAttribute="width" constant="16" id="dKq-dZ-6HW"/>
@@ -26,7 +26,7 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sB2-6Z-Ypl">
                         <rect key="frame" x="14" y="0.0" width="4" height="89"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="4" id="iDp-2I-HPY"/>
                         </constraints>
@@ -119,6 +119,7 @@
             <connections>
                 <outlet property="circle" destination="jIu-bJ-IbN" id="5gR-Ch-0Ix"/>
                 <outlet property="dateLabel" destination="2EK-Ra-MLf" id="uat-8u-crp"/>
+                <outlet property="line" destination="sB2-6Z-Ypl" id="WPE-y4-CCK"/>
                 <outlet property="messageLabel" destination="LKC-6Z-hdW" id="T0Q-4Q-P1C"/>
                 <outlet property="userImage" destination="vj6-7Q-brd" id="Ua6-8z-C6y"/>
                 <outlet property="usernameLabel" destination="huN-Ju-8yd" id="DmF-k9-MGj"/>

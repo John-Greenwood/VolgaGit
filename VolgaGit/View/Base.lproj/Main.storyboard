@@ -134,6 +134,36 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="RepositoryTableViewCell"/>
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loader" rowHeight="71" id="KZL-Dh-j6q">
+                                        <rect key="frame" x="0.0" y="184" width="414" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZL-Dh-j6q" id="gA7-C2-g8w">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="knk-WG-acP">
+                                                    <rect key="frame" x="16" y="16" width="382" height="39"/>
+                                                    <subviews>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="BDl-XC-lF0">
+                                                            <rect key="frame" x="181" y="0.0" width="20" height="20"/>
+                                                        </activityIndicatorView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загружаем больше репозиториев" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-YW-AF2">
+                                                            <rect key="frame" x="76.666666666666686" y="22" width="229" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="knk-WG-acP" firstAttribute="leading" secondItem="gA7-C2-g8w" secondAttribute="leading" constant="16" id="8hE-PR-WLe"/>
+                                                <constraint firstAttribute="trailing" secondItem="knk-WG-acP" secondAttribute="trailing" constant="16" id="XL5-EW-J8c"/>
+                                                <constraint firstAttribute="bottom" secondItem="knk-WG-acP" secondAttribute="bottom" constant="16" id="Xtk-Mh-vdh"/>
+                                                <constraint firstItem="knk-WG-acP" firstAttribute="top" secondItem="gA7-C2-g8w" secondAttribute="top" constant="16" id="nbF-yH-fWi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -198,11 +228,11 @@
             <objects>
                 <viewController storyboardIdentifier="RepositoryDetail" id="C7l-dS-WwJ" customClass="RepositoryDetailViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ppv-8S-hPB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-rD-Din">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CLL-La-vNU">
                                         <rect key="frame" x="20" y="8" width="374" height="73"/>
@@ -218,7 +248,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xox-KQ-6Dy">
-                                                        <rect key="frame" x="56" y="1.3333333333333428" width="318" height="45.666666666666664"/>
+                                                        <rect key="frame" x="56" y="1.3333333333333321" width="318" height="45.666666666666671"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автор репозитория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbD-Ya-JkJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="318" height="17"/>
@@ -245,7 +275,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-Lm-bC1">
-                                        <rect key="frame" x="20" y="89" width="374" height="564"/>
+                                        <rect key="frame" x="20" y="89" width="374" height="699"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommitCell" rowHeight="80" id="Ehv-oK-Zym" customClass="CommitTableViewCell" customModule="VolgaGit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="374" height="80"/>

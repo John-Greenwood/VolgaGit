@@ -14,6 +14,7 @@ class MainViewModel {
     var repositoriesCount: Int { get { return repositories.value?.count ?? 0 }}
     let target: UIViewController
     var alertManager: AlertManager!
+    var lastRepositoryIdentifier: Int? = nil
     
     init(_ target: UIViewController) {
         self.target = target
@@ -25,10 +26,15 @@ class MainViewModel {
         return (repositories.value?[indexPath.row])!
     }
     
-    func loadRepositories(completion: @escaping (_ result: Bool)->()) {
-        APIManager.shared.fetchRepositories { (result, error, repositories) in
-            if result { self.repositories.value = repositories! }
-            else {
+    func loadRepositories(_ clear: Bool = false, completion: @escaping (_ result: Bool)->()) {
+        APIManager.shared.fetchRepositories(lastIdentifier: lastRepositoryIdentifier) { (result, error, repositories) in
+            if clear { self.repositories.value = [] }
+            if self.repositories.value == nil { self.repositories.value = [] }
+            if result {
+                self.repositories.value?.append(contentsOf: repositories!)
+                self.lastRepositoryIdentifier = self.repositories.value?.last?.id
+                
+            } else {
                 self.repositories.value = []
                 if error! == .needAuth { AlertManager(self.target).error(error!) }
             }

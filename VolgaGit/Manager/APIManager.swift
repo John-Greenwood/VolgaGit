@@ -20,8 +20,11 @@ class APIManager {
     
     let decoder = JSONDecoder()
     
-    func fetchRepositories(completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repositories: [Repository]?)->()) {
-        gitApi(method: "repositories") { (result, data) in
+    func fetchRepositories(lastIdentifier: Int?, completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repositories: [Repository]?)->()) {
+        var params: [String: Any]? = nil
+        if lastIdentifier != nil { params = ["since": lastIdentifier!] }
+        
+        gitApi(method: "repositories", params: params) { (result, data) in
             if result {
                 do {
                     let result = try self.decoder.decode([Repository].self, from: data!)
@@ -98,7 +101,7 @@ class APIManager {
         }
     }
     
-    func gitApi(method: String, completion: @escaping (_ result: Bool, _ data: Data?)->()) {
+    func gitApi(method: String, params: [String: Any]? = nil, completion: @escaping (_ result: Bool, _ data: Data?)->()) {
         let apiurl = "https://api.github.com/"
         
         let username = DefaultsManager.shared.login ?? "login"
@@ -107,7 +110,7 @@ class APIManager {
         let base64Credentials = credentialData.base64EncodedString()
         let headers: HTTPHeaders = ["Authorization": "Basic \(base64Credentials)"]
         
-        AF.request("\(apiurl)\(method)", headers: headers).responseJSON { (response) in
+        AF.request("\(apiurl)\(method)", parameters: params, headers: headers).responseJSON { (response) in
             switch response.result {
             case .success(_): completion(true, response.data)
             case .failure(_): completion(false, nil)

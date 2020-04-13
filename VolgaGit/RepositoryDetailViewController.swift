@@ -73,6 +73,7 @@ extension RepositoryDetailViewController: UITableViewDelegate, UITableViewDataSo
             
         } else {
             cell.hideSkeleton()
+            cell.color = LanguageColors.getColor(for: repository!)
             cell.commit = model.getCommit(for: indexPath)
         }
         

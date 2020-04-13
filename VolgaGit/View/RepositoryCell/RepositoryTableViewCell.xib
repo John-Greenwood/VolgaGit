@@ -95,6 +95,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.left.slash.chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="I0t-A7-IDi">
                                                 <rect key="frame" x="0.0" y="-0.5" width="20" height="21"/>
+                                                <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="BjM-KJ-Ld0"/>
                                                     <constraint firstAttribute="height" constant="20" id="Whl-uo-BJO"/>
@@ -222,6 +223,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="Qp4-LD-A8J" id="bbj-EA-Au4"/>
                 <outlet property="forkCountLabel" destination="AYc-d2-frD" id="0Ff-y9-m1u"/>
+                <outlet property="languageImage" destination="I0t-A7-IDi" id="bUB-o6-Aha"/>
                 <outlet property="languageLabel" destination="k6F-rQ-mUl" id="9oh-wj-Ra5"/>
                 <outlet property="starCountLabel" destination="xqV-Jp-QIZ" id="TD7-yg-9yd"/>
                 <outlet property="titleLabel" destination="vdA-nz-eMm" id="fBz-nn-lMs"/>
