@@ -27,7 +27,7 @@ class RepositoryDetailViewModel {
     
     func loadCommits(completion: @escaping ()->()) {
         APIManager.shared.getCommits(for: repository) { (success, error, commits) in
-            if success { self.commits.value = commits }
+            if success { self.commits.value = Array(commits?.prefix(10) ?? []) }
             else { AlertManager(self.target).error(error!) }
             
             completion()
