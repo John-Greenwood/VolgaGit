@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-461" y="187"/>
+            <point key="canvasLocation" x="-693" y="597"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HlL-b1-HUO">
@@ -98,6 +98,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cgy-ZX-0do"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CRS-Ky-CO7"/>
                     <connections>
                         <outlet property="loginField" destination="DLL-7p-vJm" id="Nbf-Oy-OhH"/>
                         <outlet property="passwordField" destination="AoG-w2-tDQ" id="UDO-sR-nye"/>
@@ -105,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtS-qR-DGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="187"/>
+            <point key="canvasLocation" x="133" y="597"/>
         </scene>
         <!--Репозитории-->
         <scene sceneID="AKy-hx-BJh">
@@ -205,23 +206,16 @@
                         <viewLayoutGuide key="safeArea" id="3hl-YD-sVd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vwg-QU-bVv"/>
-                    <navigationItem key="navigationItem" title="Репозитории" largeTitleDisplayMode="always" id="Q9I-rK-cyz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="ih1-QI-0Mn">
-                            <connections>
-                                <action selector="logOut:" destination="N5E-GF-soE" id="mZx-OV-oww"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Репозитории" largeTitleDisplayMode="always" id="Q9I-rK-cyz"/>
                     <connections>
                         <outlet property="errorView" destination="fXI-p2-OAH" id="aoE-1p-Pa4"/>
                         <outlet property="tableView" destination="ew3-aO-LaO" id="IXp-ya-Jwt"/>
-                        <segue destination="TF9-Bu-N2p" kind="presentation" identifier="GoToLogin" modalPresentationStyle="fullScreen" id="OoX-KU-Coj"/>
                         <segue destination="C7l-dS-WwJ" kind="show" identifier="ShowRepositoryDetail" id="c6L-Qa-N2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBn-B1-u5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2811.594202898551" y="-542.41071428571422"/>
+            <point key="canvasLocation" x="2861" y="-273"/>
         </scene>
         <!--Репозиторий-->
         <scene sceneID="saa-1c-grC">
@@ -328,13 +322,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5H-nv-qhG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3592.753623188406" y="-542.41071428571422"/>
+            <point key="canvasLocation" x="3709" y="-273"/>
         </scene>
-        <!--Item-->
+        <!--Репозитории-->
         <scene sceneID="Vv9-R5-cvt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bE2-Lz-niF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ASI-10-2MW"/>
+                    <tabBarItem key="tabBarItem" title="Репозитории" image="folder.fill" catalog="system" id="ASI-10-2MW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Irx-Eo-pjn">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -347,7 +341,67 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtb-0a-TTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013" y="-542"/>
+            <point key="canvasLocation" x="2038" y="-273"/>
+        </scene>
+        <!--Избранное-->
+        <scene sceneID="l5b-OX-L5m">
+            <objects>
+                <viewController id="q2n-lE-5fj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLL-0M-F6r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Fch-4v-Lgt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Избранное" id="Xuj-5L-vlZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDG-Sc-g9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861" y="392"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="Vrg-MJ-Qre">
+            <objects>
+                <viewController id="ByA-Rw-HXM" customClass="SettingsViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BIT-4p-Qmg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn1-V2-Yw1">
+                                <rect key="frame" x="184" y="769" width="46" height="30"/>
+                                <state key="normal" title="Выйти">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="ByA-Rw-HXM" eventType="touchUpInside" id="pOT-TM-mu5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используется аккаунт account@mail.com" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej0-Tp-wYH">
+                                <rect key="frame" x="20" y="154" width="374" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wn1-V2-Yw1" firstAttribute="centerX" secondItem="WeM-9I-kBx" secondAttribute="centerX" id="5Kr-Qj-qFv"/>
+                            <constraint firstItem="ej0-Tp-wYH" firstAttribute="top" secondItem="WeM-9I-kBx" secondAttribute="top" constant="14" id="N7s-fx-IPa"/>
+                            <constraint firstItem="WeM-9I-kBx" firstAttribute="trailing" secondItem="ej0-Tp-wYH" secondAttribute="trailing" constant="20" id="Pas-yE-7mU"/>
+                            <constraint firstItem="WeM-9I-kBx" firstAttribute="bottom" secondItem="Wn1-V2-Yw1" secondAttribute="bottom" constant="14" id="mwQ-uh-3VC"/>
+                            <constraint firstItem="ej0-Tp-wYH" firstAttribute="leading" secondItem="WeM-9I-kBx" secondAttribute="leading" constant="20" id="tq9-jl-F77"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WeM-9I-kBx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Настройки" id="BmF-km-lS9"/>
+                    <connections>
+                        <outlet property="accountLabel" destination="ej0-Tp-wYH" id="Krx-Lv-UKf"/>
+                        <segue destination="TF9-Bu-N2p" kind="presentation" identifier="LogOut" modalPresentationStyle="overFullScreen" id="cIg-TG-Fvo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kja-NW-k8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861" y="1112"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZJR-jd-Crf">
@@ -361,19 +415,62 @@
                     </tabBar>
                     <connections>
                         <segue destination="bE2-Lz-niF" kind="relationship" relationship="viewControllers" id="rgj-as-ltZ"/>
+                        <segue destination="wUR-Iv-G0z" kind="relationship" relationship="viewControllers" id="DX5-8x-bfn"/>
+                        <segue destination="WMS-Ay-AkZ" kind="relationship" relationship="viewControllers" id="tOP-M1-6MK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5K-Rb-KFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="187"/>
+            <point key="canvasLocation" x="964" y="597"/>
+        </scene>
+        <!--Избранное-->
+        <scene sceneID="nXk-Iq-r5k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wUR-Iv-G0z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Избранное" image="star.fill" catalog="system" id="Fm9-TM-Fcz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Efy-jD-MoP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q2n-lE-5fj" kind="relationship" relationship="rootViewController" id="QMd-7W-jzl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEG-8B-UDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2037.68115942029" y="392.41071428571428"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="7Yt-NP-NhO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WMS-Ay-AkZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Настройки" image="gear" catalog="system" id="Q4f-GN-hgT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fVw-8f-mmc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ByA-Rw-HXM" kind="relationship" relationship="rootViewController" id="6wC-E4-p1q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAL-aO-WRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2038" y="1112"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tPh-RO-7uD"/>
-        <segue reference="OoX-KU-Coj"/>
+        <segue reference="dsO-NX-6Ep"/>
+        <segue reference="cIg-TG-Fvo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SampleAvatar" width="300" height="300"/>
+        <image name="folder.fill" catalog="system" width="128" height="95"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="wifi.exclamationmark" catalog="system" width="128" height="101"/>
     </resources>
 </document>

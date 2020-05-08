@@ -67,13 +67,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func logOut(_ sender: Any) {
-        DefaultsManager.shared.login = nil
-        DefaultsManager.shared.password = nil
-        
-        performSegue(withIdentifier: "GoToLogin", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ShowRepositoryDetail":

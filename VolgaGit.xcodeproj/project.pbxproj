@@ -14,6 +14,7 @@
 		520030D724322E7D00A32E72 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520030D624322E7D00A32E72 /* DefaultsManager.swift */; };
 		521EF401243238DF008E0FD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EF400243238DE008E0FD2 /* LoginViewController.swift */; };
 		523935392439C7A9002C25DD /* LanguageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523935382439C7A9002C25DD /* LanguageColors.swift */; };
+		525B9B4424653AAD0018957E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B9B4324653AAD0018957E /* SettingsViewController.swift */; };
 		526B3F882434AEAE00AD7611 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */; };
 		526B3F892434AEAE00AD7611 /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */; };
 		526B3F8B2434DECE00AD7611 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F8A2434DECE00AD7611 /* Commit.swift */; };
@@ -40,6 +41,7 @@
 		520030D624322E7D00A32E72 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		521EF400243238DE008E0FD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		523935382439C7A9002C25DD /* LanguageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageColors.swift; sourceTree = "<group>"; };
+		525B9B4324653AAD0018957E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
 		526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
 		526B3F8A2434DECE00AD7611 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				52B6154D2427C48000182FB2 /* MainViewController.swift */,
 				52B615372427AF3100182FB2 /* navigatorViewController.swift */,
 				521EF400243238DE008E0FD2 /* LoginViewController.swift */,
+				525B9B4324653AAD0018957E /* SettingsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				526B3F8D2434E07000AD7611 /* RepositoryDetailViewModel.swift in Sources */,
 				528C8F60243363F4003F7A65 /* RepositoryDetailViewController.swift in Sources */,
 				52E66B33242BA8A6005A079A /* Box.swift in Sources */,
+				525B9B4424653AAD0018957E /* SettingsViewController.swift in Sources */,
 				520030CE2431DA1200A32E72 /* AlertManager.swift in Sources */,
 				52B615542427C5EF00182FB2 /* MainViewModel.swift in Sources */,
 				520030CC2431D92400A32E72 /* APIManager.swift in Sources */,
