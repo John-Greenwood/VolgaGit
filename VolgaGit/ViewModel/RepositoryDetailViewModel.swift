@@ -19,6 +19,7 @@ class RepositoryDetailViewModel {
     init(_ target: UIViewController, repository: Repository) {
         self.target = target
         self.repository = repository
+        loadCommits {}
     }
     
     func getCommit(for indexPath: IndexPath) -> Commit {
