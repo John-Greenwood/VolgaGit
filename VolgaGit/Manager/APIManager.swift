@@ -20,11 +20,11 @@ class APIManager {
     
     let decoder = JSONDecoder()
     
-    func fetchRepositories(lastIdentifier: Int?, completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repositories: [Repository]?)->()) {
+    func fetchRepositories(lastIdentifier: Int?, method: String = "repositories", completion: @escaping (_ success: Bool, _ error: AlertManager.Error?, _ repositories: [Repository]?)->()) {
         var params: [String: Any]? = nil
         if lastIdentifier != nil { params = ["since": lastIdentifier!] }
         
-        gitApi(method: "repositories", params: params) { (result, data) in
+        gitApi(method: method, params: params) { (result, data) in
             if result {
                 do {
                     let result = try self.decoder.decode([Repository].self, from: data!)

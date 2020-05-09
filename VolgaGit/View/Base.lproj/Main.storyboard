@@ -322,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5H-nv-qhG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3709" y="-273"/>
+            <point key="canvasLocation" x="3828" y="84"/>
         </scene>
         <!--Репозитории-->
         <scene sceneID="Vv9-R5-cvt">
@@ -346,18 +346,85 @@
         <!--Избранное-->
         <scene sceneID="l5b-OX-L5m">
             <objects>
-                <viewController id="q2n-lE-5fj" sceneMemberID="viewController">
+                <viewController id="q2n-lE-5fj" customClass="SavedViewController" customModule="VolgaGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xLL-0M-F6r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ADh-4k-AMU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryTableViewCell" rowHeight="190" id="Xl1-oj-veo" customClass="RepositoryTableViewCell" customModule="VolgaGit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xl1-oj-veo" id="WHg-kl-mug">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="RepositoryTableViewCell"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loader" rowHeight="71" id="1uw-Zw-Ui5">
+                                        <rect key="frame" x="0.0" y="218" width="414" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1uw-Zw-Ui5" id="eo7-SF-UKG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9Lq-SH-BV7">
+                                                    <rect key="frame" x="16" y="16" width="382" height="39"/>
+                                                    <subviews>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UeS-iD-vhm">
+                                                            <rect key="frame" x="181" y="0.0" width="20" height="20"/>
+                                                        </activityIndicatorView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загружаем больше репозиториев" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22S-lY-gs8">
+                                                            <rect key="frame" x="76.666666666666686" y="22" width="229" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="9Lq-SH-BV7" secondAttribute="trailing" constant="16" id="E05-oi-QCq"/>
+                                                <constraint firstItem="9Lq-SH-BV7" firstAttribute="top" secondItem="eo7-SF-UKG" secondAttribute="top" constant="16" id="VXo-aq-Kan"/>
+                                                <constraint firstItem="9Lq-SH-BV7" firstAttribute="leading" secondItem="eo7-SF-UKG" secondAttribute="leading" constant="16" id="brG-Ak-Fy7"/>
+                                                <constraint firstAttribute="bottom" secondItem="9Lq-SH-BV7" secondAttribute="bottom" constant="16" id="uDa-v2-tHP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="q2n-lE-5fj" id="4MC-xc-EAx"/>
+                                    <outlet property="delegate" destination="q2n-lE-5fj" id="Mcl-Kx-QAx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Fch-4v-Lgt" firstAttribute="trailing" secondItem="ADh-4k-AMU" secondAttribute="trailing" id="2GZ-GQ-elE"/>
+                            <constraint firstItem="Fch-4v-Lgt" firstAttribute="bottom" secondItem="ADh-4k-AMU" secondAttribute="bottom" id="EPM-mL-B4p"/>
+                            <constraint firstItem="ADh-4k-AMU" firstAttribute="leading" secondItem="Fch-4v-Lgt" secondAttribute="leading" id="Ihx-Qq-KGV"/>
+                            <constraint firstItem="ADh-4k-AMU" firstAttribute="top" secondItem="Fch-4v-Lgt" secondAttribute="top" id="P5T-PE-Q1s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Fch-4v-Lgt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Избранное" id="Xuj-5L-vlZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="ADh-4k-AMU" id="Lc3-8o-Fq0"/>
+                        <segue destination="C7l-dS-WwJ" kind="show" identifier="ShowSavedRepositoryDetail" id="m9b-td-XwR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDG-Sc-g9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2861" y="392"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="391.74107142857139"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="Vrg-MJ-Qre">
@@ -464,6 +531,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dsO-NX-6Ep"/>
+        <segue reference="m9b-td-XwR"/>
         <segue reference="cIg-TG-Fvo"/>
     </inferredMetricsTieBreakers>
     <resources>

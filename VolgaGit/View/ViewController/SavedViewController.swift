@@ -1,25 +1,26 @@
 //
-//  MainViewController.swift
+//  SavedViewController.swift
 //  VolgaGit
 //
-//  Created by John on 22.03.2020.
+//  Created by John on 08.05.2020.
 //  Copyright © 2020 Лебедев Лев. All rights reserved.
 //
 
 import UIKit
+
+import UIKit
 import SkeletonView
 
-class MainViewController: UIViewController {
+class SavedViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var errorView: UIStackView!
     
-    var model: MainViewModel!
+    var model: SavedViewModel!
     var selectedIndexPath: IndexPath?
     let refreshControl = UIRefreshControl()
     var isLoading = true
     let cellIdentifier = "RepositoryTableViewCell"
-    var seagueIdentifier = "ShowRepositoryDetail"
+    var seagueIdentifier = "ShowSavedRepositoryDetail"
     var pagination = true
     
     override func viewDidLoad() {
@@ -32,30 +33,32 @@ class MainViewController: UIViewController {
         
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 
-        model = MainViewModel(self)
+        model = SavedViewModel(self)
         model.repositories.bind { (value) in
             if value?.isEmpty ?? false {
                 self.endLoading()
-                self.errorView.isHidden = false
                 
             } else if value != nil {
                 self.endLoading()
                 self.tableView.separatorStyle = .singleLine
             }
         }
+        
+        model.savedRepositories.bind { (value) in
+            self.tableView.reloadData()
+        }
     }
     
     func loadNextRepositories () {
         pagination = false
-        tableView.reloadSections([1], with: .bottom)
+        tableView.reloadSections([2], with: .bottom)
         model.loadRepositories { (_) in
             self.pagination = true
-            self.tableView.reloadSections([1], with: .bottom)
+            self.tableView.reloadSections([2], with: .bottom)
         }
     }
     
     func endLoading() {
-        self.errorView.isHidden = true
         isLoading = false
         tableView.reloadData()
         tableView.addSubview(self.refreshControl)
@@ -63,7 +66,6 @@ class MainViewController: UIViewController {
     
     @objc func refresh() {
         model.loadRepositories(true) { result in
-            if result { self.errorView.isHidden = true }
             self.refreshControl.endRefreshing()
         }
     }
@@ -83,14 +85,14 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        if isLoading || indexPath.section != 0 { return nil }
+        if isLoading || indexPath.section == 2 { return nil }
 
         selectedIndexPath = indexPath
         
@@ -117,6 +119,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return configuration
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 { return "Сохраненные репозитории" }
+        else if section == 1 { return "Смотрите также" }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
         animator.addCompletion {
             self.performSegue(withIdentifier: self.seagueIdentifier, sender: self)
@@ -124,14 +132,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 { return 1 }
+        if section == 0 { return model.savedRepositoriesCount }
+        if section == 2 { return 1 }
         if isLoading { return 5 }
-        return model.repositoriesCount
+        else { return model.repositoriesCount }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
             if pagination { return UITableViewCell() }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "loader") ?? UITableViewCell()
@@ -140,12 +149,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RepositoryTableViewCell
         
+        
+        
         if isLoading {
             cell.showAnimatedGradientSkeleton()
             
         } else {
             cell.hideSkeleton()
-            cell.repository = model.getRepository(for: indexPath)
+            if indexPath.section == 0 {
+                cell.repository = model.getSavedRepository(for: indexPath)
+            } else {
+                cell.repository = model.getRepository(for: indexPath)
+            }
         }
         
         return cell
@@ -167,7 +182,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if isLoading || indexPath.section == 1 { return }
+        if isLoading || indexPath.section == 2 { return }
         
         selectedIndexPath = indexPath
         performSegue(withIdentifier: seagueIdentifier, sender: self)
