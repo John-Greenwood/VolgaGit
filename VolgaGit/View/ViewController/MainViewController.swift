@@ -105,8 +105,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 
         }) { (actions) -> UIMenu? in
             
-            let action = UIAction(title: "Добавить в избранное", image: UIImage(systemName: "star.fill")) { (action) in
-                print("SAVE!")
+            let repository = self.model.getRepository(for: indexPath)
+            let action: UIAction!
+            
+            if (DBManager.shared.isSaved(repository)) {
+                action = UIAction(title: "Убрать из избранного", image: UIImage(systemName: "star.slash.fill")) { (action) in
+                    DBManager.shared.delete(repository)
+                    self.tableView.reloadData()
+                }
+            } else {
+                action = UIAction(title: "Добавить в избранное", image: UIImage(systemName: "star.fill")) { (action) in
+                    DBManager.shared.save(repository)
+                    self.tableView.reloadData()
+                }
             }
             
             let menu = UIMenu(title: "", children: [action])
@@ -154,14 +165,27 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if isLoading || indexPath.section == 1 { return nil }
         
-        let addToFavorites = UIContextualAction(style: .normal, title: "Добавить в избранное") { (action, view, completion) in
-            completion(true)
+        let repository = self.model.getRepository(for: indexPath)
+        let action: UIContextualAction!
+        
+        if (DBManager.shared.isSaved(repository)) {
+            action = UIContextualAction(style: .normal, title: "Убрать из избранного") { (action, view, completion) in
+                DBManager.shared.delete(repository)
+                self.tableView.reloadData()
+            }
+            action.backgroundColor = .systemRed
+            action.image = UIImage(systemName: "star.slash.fill")
+
+        } else {
+            action = UIContextualAction(style: .normal, title: "Добавить в избранное") { (action, view, completion) in
+                DBManager.shared.save(repository)
+                self.tableView.reloadData()
+            }
+            action.backgroundColor = .systemYellow
+            action.image = UIImage(systemName: "star.fill")
         }
-        addToFavorites.backgroundColor = .systemYellow
-        addToFavorites.image = UIImage(systemName: "star.fill")
         
-        
-        return UISwipeActionsConfiguration(actions: [addToFavorites])
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -65,6 +65,7 @@ class SavedViewController: UIViewController {
     }
     
     @objc func refresh() {
+        model.reloadSaves()
         model.loadRepositories(true) { result in
             self.refreshControl.endRefreshing()
         }
@@ -107,8 +108,19 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
                 
         }) { (actions) -> UIMenu? in
             
-            let action = UIAction(title: "Добавить в избранное", image: UIImage(systemName: "star.fill")) { (action) in
-                print("SAVE!")
+            let repository = self.model.getRepository(for: indexPath)
+            let action: UIAction!
+            
+            if (DBManager.shared.isSaved(repository)) {
+                action = UIAction(title: "Убрать из избранного", image: UIImage(systemName: "star.slash.fill")) { (action) in
+                    DBManager.shared.delete(repository)
+                    self.model.reloadSaves()
+                }
+            } else {
+                action = UIAction(title: "Добавить в избранное", image: UIImage(systemName: "star.fill")) { (action) in
+                    DBManager.shared.save(repository)
+                    self.model.reloadSaves()
+                }
             }
             
             let menu = UIMenu(title: "", children: [action])
@@ -120,7 +132,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 { return "Сохраненные репозитории" }
+        if section == 0 && model.savedRepositoriesCount != 0 { return "Сохраненные репозитории" }
         else if section == 1 { return "Смотрите также" }
         return nil
     }
@@ -151,13 +163,14 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         
-        if isLoading {
+        if isLoading && indexPath.section != 0{
             cell.showAnimatedGradientSkeleton()
             
         } else {
             cell.hideSkeleton()
             if indexPath.section == 0 {
                 cell.repository = model.getSavedRepository(for: indexPath)
+                
             } else {
                 cell.repository = model.getRepository(for: indexPath)
             }
@@ -167,22 +180,37 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if isLoading || indexPath.section == 1 { return nil }
+        if isLoading && indexPath.section == 1 { return nil }
+        if indexPath.section == 2 { return nil }
         
-        let addToFavorites = UIContextualAction(style: .normal, title: "Добавить в избранное") { (action, view, completion) in
-            completion(true)
+        let repository = self.model.getRepository(for: indexPath)
+        let action: UIContextualAction!
+        
+        if (DBManager.shared.isSaved(repository)) {
+            action = UIContextualAction(style: .normal, title: "Убрать из избранного") { (action, view, completion) in
+                DBManager.shared.delete(repository)
+                self.model.reloadSaves()
+            }
+            action.backgroundColor = .systemRed
+            action.image = UIImage(systemName: "star.slash.fill")
+
+        } else {
+            action = UIContextualAction(style: .normal, title: "Добавить в избранное") { (action, view, completion) in
+                DBManager.shared.save(repository)
+                self.model.reloadSaves()
+            }
+            action.backgroundColor = .systemYellow
+            action.image = UIImage(systemName: "star.fill")
         }
-        addToFavorites.backgroundColor = .systemYellow
-        addToFavorites.image = UIImage(systemName: "star.fill")
         
-        
-        return UISwipeActionsConfiguration(actions: [addToFavorites])
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if isLoading || indexPath.section == 2 { return }
+        if isLoading && indexPath.section == 1 { return }
+        if indexPath.section == 2 { return }
         
         selectedIndexPath = indexPath
         performSegue(withIdentifier: seagueIdentifier, sender: self)

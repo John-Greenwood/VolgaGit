@@ -33,8 +33,11 @@ class SavedViewModel: MainViewModel {
     override init(_ target: UIViewController) {
         super.init(target)
         
-        // Temp, change it
-        self.savedRepositories.value = []
+        reloadSaves()
+    }
+    
+    func reloadSaves() {
+        self.savedRepositories.value = DBManager.shared.getSaves()
     }
     
     func getSavedRepository(for indexPath: IndexPath) -> Repository {

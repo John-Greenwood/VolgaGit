@@ -17,6 +17,7 @@
 		525B9B4424653AAD0018957E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B9B4324653AAD0018957E /* SettingsViewController.swift */; };
 		525B9B4624653FA70018957E /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B9B4524653FA70018957E /* SavedViewController.swift */; };
 		525B9B482466B5690018957E /* SavedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B9B472466B5690018957E /* SavedViewModel.swift */; };
+		525B9B4A246802910018957E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B9B49246802910018957E /* DBManager.swift */; };
 		526B3F882434AEAE00AD7611 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */; };
 		526B3F892434AEAE00AD7611 /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */; };
 		526B3F8B2434DECE00AD7611 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F8A2434DECE00AD7611 /* Commit.swift */; };
@@ -46,6 +47,7 @@
 		525B9B4324653AAD0018957E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		525B9B4524653FA70018957E /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		525B9B472466B5690018957E /* SavedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewModel.swift; sourceTree = "<group>"; };
+		525B9B49246802910018957E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		526B3F862434AEAE00AD7611 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
 		526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
 		526B3F8A2434DECE00AD7611 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				520030CB2431D92400A32E72 /* APIManager.swift */,
 				520030D624322E7D00A32E72 /* DefaultsManager.swift */,
 				520030CD2431DA1200A32E72 /* AlertManager.swift */,
+				525B9B49246802910018957E /* DBManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				52B615362427AF3100182FB2 /* SceneDelegate.swift in Sources */,
 				525B9B4624653FA70018957E /* SavedViewController.swift in Sources */,
 				52B6154E2427C48000182FB2 /* MainViewController.swift in Sources */,
+				525B9B4A246802910018957E /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
