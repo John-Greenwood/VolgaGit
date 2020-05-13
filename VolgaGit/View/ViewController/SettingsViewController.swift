@@ -10,9 +10,15 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var avatarImage: UIImageView! {
+        didSet {
+            avatarImage.layer.cornerRadius = avatarImage.frame.height / 2
+        }
+    }
+    
     @IBOutlet weak var accountLabel: UILabel! {
         didSet {
-            accountLabel.text = "Используется аккаунт: \(DefaultsManager.shared.login ?? "")"
+            accountLabel.text = "\(DefaultsManager.shared.login ?? "Повторите вход")"
         }
     }
 
