@@ -29,6 +29,9 @@ class SavedViewController: UIViewController {
         let nibName = UINib(nibName: "RepositoryTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: cellIdentifier)
         
+        let loaderNibName = UINib(nibName: "LoaderTableViewCell", bundle: nil)
+        tableView.register(loaderNibName, forCellReuseIdentifier: "LoaderTableViewCell")
+        
         tableView.separatorStyle = .none
         
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -155,7 +158,9 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 2 {
             if pagination { return UITableViewCell() }
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loader") ?? UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoaderTableViewCell") as! LoaderTableViewCell
+            cell.spinner.startAnimating()
+            
             return cell
         }
         

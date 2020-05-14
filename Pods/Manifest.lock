@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.0.2)
+  - Alamofire (5.1.0)
   - IQKeyboardManagerSwift (6.5.5)
   - SkeletonView (1.8.7)
 
@@ -15,7 +15,7 @@ SPEC REPOS:
     - SkeletonView
 
 SPEC CHECKSUMS:
-  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
 

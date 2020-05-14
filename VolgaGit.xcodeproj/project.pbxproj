@@ -23,6 +23,8 @@
 		526B3F8B2434DECE00AD7611 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F8A2434DECE00AD7611 /* Commit.swift */; };
 		526B3F8D2434E07000AD7611 /* RepositoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B3F8C2434E07000AD7611 /* RepositoryDetailViewModel.swift */; };
 		528C8F60243363F4003F7A65 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C8F5F243363F4003F7A65 /* RepositoryDetailViewController.swift */; };
+		529642D7246D354F00EC6028 /* LoaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529642D6246D354F00EC6028 /* LoaderTableViewCell.xib */; };
+		529642D9246D35CA00EC6028 /* LoaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529642D8246D35CA00EC6028 /* LoaderTableViewCell.swift */; };
 		52A121102431C75F001E6152 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */; };
 		52A121112431C75F001E6152 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */; };
 		52B615342427AF3100182FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B615332427AF3100182FB2 /* AppDelegate.swift */; };
@@ -53,6 +55,8 @@
 		526B3F8A2434DECE00AD7611 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		526B3F8C2434E07000AD7611 /* RepositoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewModel.swift; sourceTree = "<group>"; };
 		528C8F5F243363F4003F7A65 /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepositoryDetailViewController.swift; path = VolgaGit/RepositoryDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		529642D6246D354F00EC6028 /* LoaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderTableViewCell.xib; sourceTree = "<group>"; };
+		529642D8246D35CA00EC6028 /* LoaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderTableViewCell.swift; sourceTree = "<group>"; };
 		52A1210E2431C75F001E6152 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		52A1210F2431C75F001E6152 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		52B615302427AF3100182FB2 /* VolgaGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolgaGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,15 @@
 				526B3F872434AEAE00AD7611 /* CommitTableViewCell.xib */,
 			);
 			path = CommitCell;
+			sourceTree = "<group>";
+		};
+		529642D5246D352A00EC6028 /* LoaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				529642D8246D35CA00EC6028 /* LoaderTableViewCell.swift */,
+				529642D6246D354F00EC6028 /* LoaderTableViewCell.xib */,
+			);
+			path = LoaderCell;
 			sourceTree = "<group>";
 		};
 		52A1210D2431C73F001E6152 /* RepositoryCell */ = {
@@ -149,6 +162,7 @@
 			children = (
 				52B615412427AF3500182FB2 /* LaunchScreen.storyboard */,
 				52B615392427AF3100182FB2 /* Main.storyboard */,
+				529642D5246D352A00EC6028 /* LoaderCell */,
 				526B3F852434AE8800AD7611 /* CommitCell */,
 				52A1210D2431C73F001E6152 /* RepositoryCell */,
 				52B6154C2427C46200182FB2 /* ViewController */,
@@ -279,6 +293,7 @@
 			files = (
 				52B615432427AF3500182FB2 /* LaunchScreen.storyboard in Resources */,
 				52B615402427AF3500182FB2 /* Assets.xcassets in Resources */,
+				529642D7246D354F00EC6028 /* LoaderTableViewCell.xib in Resources */,
 				52B6153B2427AF3100182FB2 /* Main.storyboard in Resources */,
 				52A121112431C75F001E6152 /* RepositoryTableViewCell.xib in Resources */,
 				526B3F892434AEAE00AD7611 /* CommitTableViewCell.xib in Resources */,
@@ -338,6 +353,7 @@
 				52B615362427AF3100182FB2 /* SceneDelegate.swift in Sources */,
 				525B9B4624653FA70018957E /* SavedViewController.swift in Sources */,
 				52B6154E2427C48000182FB2 /* MainViewController.swift in Sources */,
+				529642D9246D35CA00EC6028 /* LoaderTableViewCell.swift in Sources */,
 				525B9B4A246802910018957E /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
