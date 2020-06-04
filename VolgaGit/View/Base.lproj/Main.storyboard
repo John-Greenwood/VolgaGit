@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1068" y="1794"/>
+            <point key="canvasLocation" x="-1" y="1158"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HlL-b1-HUO">
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtS-qR-DGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="1794"/>
+            <point key="canvasLocation" x="761" y="1755"/>
         </scene>
         <!--Репозитории-->
         <scene sceneID="AKy-hx-BJh">
@@ -143,11 +143,11 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="RepositoryTableViewCell"/>
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoaderTableViewCell" rowHeight="71" id="KZL-Dh-j6q" customClass="LoaderTableViewCell" customModule="VolgaGit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="184" width="414" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoaderTableViewCell" rowHeight="94" id="KZL-Dh-j6q" customClass="LoaderTableViewCell" customModule="VolgaGit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="184" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZL-Dh-j6q" id="gA7-C2-g8w">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBn-B1-u5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2861" y="-273"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="-273.21428571428572"/>
         </scene>
         <!--Репозиторий-->
         <scene sceneID="saa-1c-grC">
@@ -359,11 +359,11 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoaderTableViewCell" rowHeight="71" id="1uw-Zw-Ui5" customClass="LoaderTableViewCell" customModule="VolgaGit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245.5" width="414" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoaderTableViewCell" rowHeight="96" id="1uw-Zw-Ui5" customClass="LoaderTableViewCell" customModule="VolgaGit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="245.5" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1uw-Zw-Ui5" id="eo7-SF-UKG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>

@@ -20,6 +20,7 @@ import UIKit
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var forkCountLabel: UILabel!
     @IBOutlet weak var starCountLabel: UILabel!
+    @IBOutlet weak var watchCountLabel: UILabel!
     @IBOutlet weak var languageImage: UIImageView!
     
     @IBOutlet var loadingViews: [UIView]!
@@ -36,6 +37,7 @@ import UIKit
         userNameLabel.text = repository.owner?.login
         languageLabel.text = repository.language ?? "Unknown"
         forkCountLabel.text = "\(repository.forks_count ?? 0)"
+        watchCountLabel.text = "\(repository.watchers_count ?? 0)"
         starCountLabel.text = "\(repository.stargazers_count ?? 0)"
         
         userImage.layer.cornerRadius = userImage.frame.size.height / 2
